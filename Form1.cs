@@ -13,8 +13,6 @@ namespace _3sem_3lab_c_sharp
 {
     public partial class Form1 : Form
     {
-        
-
         public Form1()
         {
             InitializeComponent();
@@ -22,19 +20,21 @@ namespace _3sem_3lab_c_sharp
 
         private void button2_Click(object sender, EventArgs e)
         {
+            invertedStringOutput.Clear();
             var fin = new StreamReader("input.txt");
             string TextFile = fin.ReadToEnd();
             fin.Close();
             textFileInput.Text = TextFile;
+            invertedFile.Clear();
             string[] fileOutput = TextFile.Split();
             Array.Reverse(fileOutput);
             for (int i = 0; i < fileOutput.Length; i++)
                 invertedFile.Text += fileOutput[i] + ' '; 
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            invertedStringOutput.Clear();
             string enteredString = inputString.Text;
             string[] reversedString = enteredString.Split();
             Array.Reverse(reversedString);
