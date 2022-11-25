@@ -20,25 +20,38 @@ namespace _3sem_3lab_c_sharp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            invertedStringOutput.Clear();
+            //чтение файла
             var fin = new StreamReader("input.txt");
             string TextFile = fin.ReadToEnd();
             fin.Close();
+
+            //заполнение строки текстом из файла
             textFileInput.Text = TextFile;
+
+            //очистка строки от предыдущей информации
             invertedFile.Clear();
+
+            //разделение строки из файла по словам и добавление в массив
             string[] fileOutput = TextFile.Split();
-            Array.Reverse(fileOutput);
-            for (int i = 0; i < fileOutput.Length; i++)
+
+            //вывод массива с конца
+            for (int i = fileOutput.Length - 1; i >= 0; i--)
                 invertedFile.Text += fileOutput[i] + ' '; 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //очистка строки от предыдущей информации 
             invertedStringOutput.Clear();
+
+            //ввод строки
             string enteredString = inputString.Text;
+
+            //разделение введенной строки по словам и добавление в массив
             string[] reversedString = enteredString.Split();
-            Array.Reverse(reversedString);
-            for (int i = 0; i < reversedString.Length; i++)
+
+            //вывод массива с конца
+            for (int i = reversedString.Length - 1; i >= 0; i--)
                 invertedStringOutput.Text += reversedString[i] + ' ';
         }
     }
